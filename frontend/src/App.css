@@ -1,0 +1,451 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles for the Prime Real Estate application */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* Custom utility classes */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Hero section enhancements */
+.hero-gradient {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 64, 175, 0.9) 0%,
+    rgba(59, 130, 246, 0.8) 50%,
+    rgba(96, 165, 250, 0.7) 100%
+  );
+}
+
+/* Card hover effects */
+.property-card {
+  transition: all 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+/* Status badges */
+.status-badge-for-sale {
+  @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-badge-for-rent {
+  @apply bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-badge-sold {
+  @apply bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-badge-rented {
+  @apply bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+/* Navigation enhancements */
+.nav-link {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:transform hover:scale-105;
+}
+
+.nav-link.active {
+  @apply bg-blue-600 text-white shadow-lg;
+}
+
+.nav-link:not(.active) {
+  @apply text-gray-700 hover:text-blue-600 hover:bg-blue-50;
+}
+
+/* Loading states */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600;
+}
+
+.loading-text {
+  @apply text-gray-600 animate-pulse;
+}
+
+/* Image enhancements */
+.image-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.property-image {
+  transition: transform 0.3s ease;
+}
+
+.property-image:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero-description {
+    font-size: 1.125rem;
+  }
+  
+  .property-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus styles for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Glass effect for modern look */
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Success and error states */
+.success-message {
+  @apply bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg;
+}
+
+.error-message {
+  @apply bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg;
+}
+
+/* Property details enhancements */
+.property-feature {
+  @apply flex items-center space-x-2 text-gray-600;
+}
+
+.property-feature-icon {
+  @apply w-5 h-5 text-gray-500;
+}
+
+/* Amenity list styles */
+.amenity-item {
+  @apply flex items-center space-x-2 py-1;
+}
+
+.amenity-check {
+  @apply w-4 h-4 text-green-500;
+}
+
+/* Enhanced button animations */
+.btn-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Price formatting */
+.price-text {
+  @apply text-3xl font-bold text-blue-600;
+}
+
+.price-large {
+  @apply text-4xl font-bold text-blue-600;
+}
+
+/* Header enhancements */
+.header-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Footer styles (if needed) */
+.footer {
+  @apply bg-gray-900 text-white py-8;
+}
+
+.footer-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-300;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .container-mobile {
+    @apply px-4;
+  }
+  
+  .text-responsive-lg {
+    @apply text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-3xl;
+  }
+  
+  /* Mobile navigation improvements */
+  .mobile-menu-open {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+  }
+  
+  /* Improved button spacing on mobile */
+  .mobile-button-spacing > * {
+    @apply mb-2 last:mb-0;
+  }
+  
+  /* Better text sizing for mobile */
+  .mobile-text-sm {
+    @apply text-sm leading-5;
+  }
+  
+  .mobile-text-base {
+    @apply text-base leading-6;
+  }
+  
+  /* Property card mobile enhancements */
+  .property-card-mobile {
+    @apply mx-4 mb-4;
+  }
+  
+  /* Form improvements for mobile */
+  .form-mobile {
+    @apply space-y-4;
+  }
+  
+  .form-input-mobile {
+    @apply text-base; /* Prevents zoom on iOS */
+  }
+  
+  /* Hero section mobile text */
+  .hero-title-mobile {
+    @apply text-3xl leading-tight;
+  }
+  
+  .hero-subtitle-mobile {
+    @apply text-lg leading-6;
+  }
+  
+  /* Navigation button mobile */
+  .nav-button-mobile {
+    @apply px-3 py-2 text-sm;
+  }
+  
+  /* Property details mobile spacing */
+  .property-details-mobile {
+    @apply space-y-4;
+  }
+  
+  /* Status badge mobile */
+  .status-badge-mobile {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  /* Price mobile */
+  .price-mobile {
+    @apply text-xl font-bold;
+  }
+  
+  /* Features grid mobile */
+  .features-grid-mobile {
+    @apply grid-cols-1 gap-6;
+  }
+  
+  /* Image gallery mobile */
+  .gallery-mobile {
+    @apply grid-cols-1 gap-4;
+  }
+}
+
+/* Additional responsive breakpoints */
+@media (max-width: 480px) {
+  .hero-title-small {
+    @apply text-2xl;
+  }
+  
+  .property-card-small {
+    @apply mx-2;
+  }
+  
+  .button-small {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .form-small {
+    @apply px-2;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-mobile-landscape {
+    @apply h-screen;
+  }
+  
+  .nav-mobile-landscape {
+    @apply py-2;
+  }
+}
+
+/* Touch improvements for mobile */
+.touch-target {
+  @apply min-h-11 min-w-11; /* 44px minimum for good touch targets */
+}
+
+.touch-friendly {
+  @apply p-3; /* Better touch area */
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Smooth scrolling for mobile */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-friendly {
+    background: white !important;
+    color: black !important;
+  }
+}
